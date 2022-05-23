@@ -37,4 +37,13 @@ public class UsersService {
     public Iterable<Users> getUsers() {
         return this.usersRepository.findAll();
     }
+
+    public HttpStatus updateUser(Users user) {
+        try {
+            this.usersRepository.save(user);
+            return HttpStatus.OK;
+        } catch (IllegalArgumentException exception) {
+            return HttpStatus.BAD_REQUEST;
+        }
+    }
 }

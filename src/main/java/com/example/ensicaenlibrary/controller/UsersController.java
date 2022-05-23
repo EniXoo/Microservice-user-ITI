@@ -27,6 +27,11 @@ public class UsersController {
         return this.usersService.deleteUserById(userid);
     }
 
+    @PutMapping("/user/")
+    public HttpStatus updateUser(@RequestBody Users user) {
+        return this.usersService.updateUser(user);
+    }
+
     @GetMapping("/user/id")
     public ResponseEntity<Users> getUserById(@RequestParam Integer userid) {
         Users user = this.usersService.getUserById(userid);
